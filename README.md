@@ -44,19 +44,8 @@ Khu vực khảo sát: Trang chủ, Danh mục sản phẩm, Chi tiết sản ph
 
 Không dùng JavaScript hay framework.
 
-## 4. Cấu trúc thư mục và cách chạy
 
-```
-ecommerce-ui-improvement/
-├── index.html      Cấu trúc trang
-├── style.css       Toàn bộ CSS (phải nằm cùng thư mục với index.html)
-├── README.md
-└── AI_USAGE_LOG.md
-```
-
-**Chạy:** mở `index.html` bằng trình duyệt. Không cần cài đặt thêm.
-
-## 5. Cải tiến đã thực hiện
+## 4. Cải tiến đã thực hiện
 
 | Vấn đề | Cải tiến |
 |---|---|
@@ -72,13 +61,13 @@ ecommerce-ui-improvement/
 
 CSS tổ chức theo 6 phần có đánh số: Tokens, Base, Layout, Header/Footer, Thẻ sản phẩm (đặt tên theo BEM), Responsive.
 
-## 6. Hạn chế
+## 5. Hạn chế
 
 - Dữ liệu sản phẩm, giá và hình ảnh là dữ liệu mẫu tự đặt, không lấy từ Tiki.
 - Nút "Mua ngay" chưa có chức năng (chưa dùng JavaScript).
 - Tỷ lệ giảm đang viết sẵn trong HTML. Khi làm hệ thống thật, máy chủ nên tính theo công thức `(giá gốc − giá giảm) / giá gốc` rồi làm tròn.
 - Chưa kiểm thử trên nhiều trình duyệt và thiết bị thật. Mới chạy thử trên Microsoft Edge (máy tính).
 
-## 7. Tóm tắt sự hỗ trợ từ AI
+## 6. Tóm tắt sự hỗ trợ từ AI
 
 Em dùng **Claude (Anthropic)** để: (1) lập bảng phân tích 5 khu vực của Tiki, (2) đề xuất bố cục, thành phần HTML, cách tổ chức CSS và responsive cho thẻ sản phẩm, (3) viết mã HTML/CSS ban đầu, (4) sửa lỗi liên kết file sau khi tôi chạy thử và báo lại. Chi tiết prompt, phần tôi tự sửa và phần tôi tự giải thích được nằm trong `AI_USAGE_LOG.md`.
