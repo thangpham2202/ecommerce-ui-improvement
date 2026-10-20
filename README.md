@@ -1,6 +1,6 @@
 # Cải tiến thẻ hiển thị sản phẩm cho website thương mại điện tử
 
-- **Họ tên / MSSV:** Phạm Văn Thắng
+- **Họ tên:** Phạm Văn Thắng
 - **MSSV:** 31241027009 
 - **Ngày thực hiện:** 19/10/2026
 
