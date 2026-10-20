@@ -1,9 +1,9 @@
 # Nhật ký sử dụng AI
 
-- **Họ tên / MSSV:** [ĐIỀN]
-- **Ngày:** 20/10/2026
+- **Họ tên**: Phạm Văn Thắng
+- **MSSV:**: 31241027009 
+- **Ngày:** 19/10/2026
 
-> Các chỗ có dấu `[ĐIỀN]` hoặc ô `[ ]` là phần chỉ riêng tôi biết. Tôi chỉ ghi những gì tôi thực sự đã làm.
 
 ## 1. Tên công cụ AI
 
@@ -27,13 +27,13 @@
 | 4 | Gửi ảnh chụp màn hình trang chạy trên Edge (không có định dạng, ảnh vỡ), yêu cầu sửa để HTML liên kết đúng với CSS. | AI giải thích thư mục của tôi chỉ có `index.html`, thiếu `style.css` và `images/`. AI nhúng ảnh vào HTML và đóng gói lại hai file. |
 | 5 | Yêu cầu viết `README.md` và `AI_USAGE_LOG.md`. | Hai file này (bản nháp để em chỉnh lại). |
 
-## 4. Cách em sử dụng kết quả của AI
+## 4. Cách em sử dụng kết quả của AI, tóm tắt
 
-- Bảng phân tích (prompt 1) dùng làm khung khảo sát. Tôi hiểu rằng các mục `[CKC]` phải tự kiểm chứng trên Tiki trước khi dùng làm kết luận.
+- Bảng phân tích (prompt 1) dùng làm khung khảo sát. Em hiểu rằng các mục `[CKC]` phải tự kiểm chứng trên Tiki trước khi dùng làm kết luận.
 - Phương án (prompt 2) được chọn làm hướng thiết kế.
 - Mã (prompt 3, 4) được đặt vào thư mục `ecommerce-ui-improvement`, chạy thử trên Microsoft Edge và dùng làm sản phẩm nộp.
 - Em không coi nội dung AI viết là đúng tuyệt đối. Em đã chạy thử và phát hiện lỗi ở prompt 4.
-
+- Em dùng Claude (Anthropic) để: (1) lập bảng phân tích 5 khu vực của Tiki, (2) đề xuất bố cục, thành phần HTML, cách tổ chức CSS và responsive cho thẻ sản phẩm, (3) viết mã HTML/CSS ban đầu, (4) sửa lỗi liên kết file sau khi em chạy thử và báo lại.
 ## 5. Phần em đã tự sửa
 
 Đã xác nhận được qua quá trình làm bài:
@@ -56,8 +56,6 @@ Em tự điền thêm:
   - Thiết bị di động thực tế: Không có.
 
 ## 6. Phần em tự giải thích được
-
-**Hãy đánh dấu `[x]` chỉ những mục bạn thực sự giải thích được khi giảng viên hỏi.** 
 
 - **Vì sao trang bị mất định dạng ban đầu:** `index.html` dùng `<link rel="stylesheet" href="style.css">`, đường dẫn tương đối nên `style.css` phải nằm cùng thư mục. Thiếu file thì trình duyệt không tìm thấy CSS.
 - **Vì sao dùng `<del>` cho giá gốc:** thẻ này có nghĩa "nội dung đã bị thay thế", và trình duyệt gạch ngang mặc định.
