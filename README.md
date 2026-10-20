@@ -10,7 +10,7 @@
 
 Khu vực khảo sát: Trang chủ, Danh mục sản phẩm, Chi tiết sản phẩm, Tìm kiếm, Giỏ hàng.
 
-**Phạm vi kiểm chứng (nói rõ để không khẳng định quá mức):** trong lần khảo sát với AI, chỉ phần văn bản mô tả của trang chủ Tiki được đọc trực tiếp. Phần văn bản này nhắc đến giá sốc mỗi ngày, cửa hàng Official, Freeship+, TikiNOW, TikiCARD và các tiện ích như thẻ cào, hóa đơn, bảo hiểm. Các nhận xét về danh mục, chi tiết sản phẩm, tìm kiếm và giỏ hàng là **giả định chung của thương mại điện tử, chưa kiểm chứng trên Tiki**. Bảng phân tích gốc có gắn nhãn `[QS]` (đã quan sát), `[CKC]` (chưa kiểm chứng) và `[AI]` (đề xuất của AI) để phân biệt.
+**Phạm vi kiểm chứng:** trong lần khảo sát với AI, chỉ phần văn bản mô tả của trang chủ Tiki được đọc trực tiếp. Phần văn bản này nhắc đến giá sốc mỗi ngày, cửa hàng Official, Freeship+, TikiNOW, TikiCARD và các tiện ích như thẻ cào, hóa đơn, bảo hiểm. Các nhận xét về danh mục, chi tiết sản phẩm, tìm kiếm và giỏ hàng là **giả định chung của thương mại điện tử, chưa kiểm chứng trên Tiki**. Bảng phân tích gốc có gắn nhãn `[QS]` (đã quan sát), `[CKC]` (chưa kiểm chứng) và `[AI]` (đề xuất của AI) để phân biệt.
 ### Bảng khảo sát 5 khu vực trên website Tiki (tiki.vn)
 
 | Khu vực | Chức năng đang cung cấp | Điểm hợp lý trong thiết kế | Điểm có thể cải thiện | Đề xuất cải tiến & Lý do |
