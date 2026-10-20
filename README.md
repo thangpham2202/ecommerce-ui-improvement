@@ -61,7 +61,18 @@ Không dùng JavaScript hay framework.
 
 CSS tổ chức theo 6 phần có đánh số: Tokens, Base, Layout, Header/Footer, Thẻ sản phẩm (đặt tên theo BEM), Responsive.
 
-## 5. Hạn chế
+## 5. Hướng Dẫn Chạy Vấn Đáp Và Kiểm Thử
+
+### Cách chạy dự án:
+1. Tải thư mục mã nguồn về máy tính.
+2. Mở file `index.html` bằng trình duyệt web bất kỳ hoặc phần mềm VS Code.
+
+### Các điểm cần kiểm tra khi đánh giá:
+- Giá bán hiện tại có hiển thị rõ ràng hơn so với giá gốc và phần trăm giảm giá không.
+- Thử thay đổi kích thước trình duyệt từ máy tính xuống di động để kiểm tra khả năng tự động chuyển từ 4 cột sang 2 cột.
+- Kiểm tra các thẻ sản phẩm có tên ngắn và tên dài để xác nhận chiều cao toàn bộ các thẻ và vị trí nút bấm luôn thẳng hàng.
+
+## 6. Hạn chế
 
 - Dữ liệu sản phẩm, giá và hình ảnh là dữ liệu mẫu tự đặt, không lấy từ Tiki.
 - Nút "Mua ngay" chưa có chức năng (chưa dùng JavaScript).
