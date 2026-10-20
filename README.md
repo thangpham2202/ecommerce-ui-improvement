@@ -67,7 +67,3 @@ CSS tổ chức theo 6 phần có đánh số: Tokens, Base, Layout, Header/Foot
 - Nút "Mua ngay" chưa có chức năng (chưa dùng JavaScript).
 - Tỷ lệ giảm đang viết sẵn trong HTML. Khi làm hệ thống thật, máy chủ nên tính theo công thức `(giá gốc − giá giảm) / giá gốc` rồi làm tròn.
 - Chưa kiểm thử trên nhiều trình duyệt và thiết bị thật. Mới chạy thử trên Microsoft Edge (máy tính).
-
-## 6. Tóm tắt sự hỗ trợ từ AI
-
-Em dùng **Claude (Anthropic)** để: (1) lập bảng phân tích 5 khu vực của Tiki, (2) đề xuất bố cục, thành phần HTML, cách tổ chức CSS và responsive cho thẻ sản phẩm, (3) viết mã HTML/CSS ban đầu, (4) sửa lỗi liên kết file sau khi tôi chạy thử và báo lại. Chi tiết prompt, phần tôi tự sửa và phần tôi tự giải thích được nằm trong `AI_USAGE_LOG.md`.
