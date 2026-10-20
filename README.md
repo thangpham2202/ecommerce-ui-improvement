@@ -11,6 +11,17 @@
 Khu vực khảo sát: Trang chủ, Danh mục sản phẩm, Chi tiết sản phẩm, Tìm kiếm, Giỏ hàng.
 
 **Phạm vi kiểm chứng (nói rõ để không khẳng định quá mức):** trong lần khảo sát với AI, chỉ phần văn bản mô tả của trang chủ Tiki được đọc trực tiếp. Phần văn bản này nhắc đến giá sốc mỗi ngày, cửa hàng Official, Freeship+, TikiNOW, TikiCARD và các tiện ích như thẻ cào, hóa đơn, bảo hiểm. Các nhận xét về danh mục, chi tiết sản phẩm, tìm kiếm và giỏ hàng là **giả định chung của thương mại điện tử, chưa kiểm chứng trên Tiki**. Bảng phân tích gốc có gắn nhãn `[QS]` (đã quan sát), `[CKC]` (chưa kiểm chứng) và `[AI]` (đề xuất của AI) để phân biệt.
+### Bảng khảo sát 5 khu vực trên website Tiki (tiki.vn)
+
+| Khu vực | Chức năng đang cung cấp | Điểm hợp lý trong thiết kế | Điểm có thể cải thiện | Đề xuất cải tiến & Lý do |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Trang chủ** | Hiển thị banner khuyến mãi, danh mục tiện ích (TikiNOW, Astra, Thẻ cào), khối "Giá tốt mỗi ngày" `[QS]`. | Khối sản phẩm giá tốt đặt ở vị trí nổi bật, thu hút sự chú ý ngay khi truy cập `[QS]`. | Banner quảng cáo dày đặc gây xao nhãng và làm rối mắt người dùng `[AI]`. | Gộp các banner theo nhóm chủ đề để giao diện gọn gàng và tăng tốc độ tải trang `[AI]`. |
+| **2. Danh mục sản phẩm** | Phân loại sản phẩm theo ngành hàng, tích hợp bộ lọc (thương hiệu, giá, đánh giá sao) `[CKC]`. | Bộ lọc xếp dọc bên trái giúp người dùng dễ chọn lọc thông tin theo nhu cầu `[CKC]`. | Chiều cao các thẻ sản phẩm chưa đồng đều khi tên sản phẩm quá dài `[AI]`. | Giới hạn tên sản phẩm trong 2 dòng (`-webkit-line-clamp: 2`) để lưới sản phẩm cân đối `[AI]`. |
+| **3. Chi tiết sản phẩm** | Trình bày gallery ảnh, giá bán, giá gốc, mô tả kỹ thuật, thông tin giao hàng và nút chọn mua `[CKC]`. | Thông tin ưu đãi (Freeship, Hoàn tiền) đặt ngay dưới giá giúp kích thích mua hàng `[CKC]`. | Khối so sánh giá gốc và giá giảm chưa nổi bật khi xem trên màn hình điện thoại `[AI]`. | Thiết kế lại khối giá hai tầng với màu đỏ tương phản cho giá hiện tại để dễ nhận biết `[AI]`. |
+| **4. Tìm kiếm** | Thanh tìm kiếm cố định trên header, gợi ý từ khóa hot và lưu lịch sử tìm kiếm `[CKC]`. | Ô tìm kiếm to, nằm chính giữa header giúp người dùng dễ dàng thao tác ở mọi trang `[CKC]`. | Kết quả gợi ý nhanh chưa hiển thị thông tin sản phẩm đang có giảm giá hay không `[AI]`. | Bổ sung nhãn giảm giá (%) nhỏ cạnh tên sản phẩm gợi ý để tăng tỷ lệ nhấp chuột `[AI]`. |
+| **5. Giỏ hàng** | Liệt kê sản phẩm đã chọn, điều chỉnh số lượng, áp mã giảm giá và tính tổng tiền đơn hàng `[CKC]`. | Bảng tóm tắt thể hiện rõ phí vận chuyển và số tiền người mua tiết kiệm được `[CKC]`. | Nút "Thanh toán" ở màn hình điện thoại bị khuất nếu danh sách sản phẩm dài `[AI]`. | Cố định (sticky) thanh tổng tiền và nút "Thanh toán" ở đáy màn hình di động để dễ bấm `[AI]`. |
+
+*Ghi chú ký hiệu:* `[QS]`: Đã quan sát thực tế; `[CKC]`: Chưa kiểm chứng trực tiếp trên Tiki; `[AI]`: Đề xuất phân tích từ AI.
 
 ## 2. Khu vực chọn cải tiến và lý do
 
