@@ -6,7 +6,7 @@
 
 ## 1. Website khảo sát
 
-**Tiki – https://tiki.vn**, sàn thương mại điện tử dành cho khách hàng Việt Nam.
+**Tiki – https://tiki.vn**, sàn thương mại điện tử dành cho khách hàng Việt Nam mua sắm đồ dùng online
 
 Khu vực khảo sát: Trang chủ, Danh mục sản phẩm, Chi tiết sản phẩm, Tìm kiếm, Giỏ hàng.
 
