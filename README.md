@@ -27,7 +27,7 @@ Khu vực khảo sát: Trang chủ, Danh mục sản phẩm, Chi tiết sản ph
 
 **Khu vực:** thẻ hiển thị sản phẩm (product card).
 
-**Lý do:** thẻ sản phẩm xuất hiện ở trang chủ, danh mục và kết quả tìm kiếm, nên là nơi người mua so sánh giá nhiều nhất. Mục tiêu cải tiến là làm rõ **giá gốc, giá giảm và tỷ lệ giảm** để người mua hiểu ngay mình tiết kiệm được bao nhiêu.
+**Lý do:** thẻ sản phẩm xuất hiện ở danh mục và kết quả tìm kiếm, nên là nơi người mua so sánh giá nhiều nhất. Mục tiêu cải tiến là làm rõ **giá gốc, giá giảm và tỷ lệ giảm** để người mua hiểu ngay mình tiết kiệm được bao nhiêu, và chưa có nút mua ngay để tạo sự liền mạch cho khách hàng
 
 ## 3. Công nghệ sử dụng
 
