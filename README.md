@@ -4,7 +4,10 @@
 - **MSSV:** 31241027009 
 - **Ngày thực hiện:** 19/10/2026
 
-## 1. Website khảo sát
+## 1. Giới thiệu
+Dự án thực hiện cải tiến giao diện **Thẻ hiển thị sản phẩm (Product Card)** cho trang web thương mại điện tử. Mục tiêu nhằm giúp người mua dễ dàng so sánh giá bán, nhận biết tỷ lệ giảm giá, tối ưu trải nghiệm người dùng trên cả màn hình máy tính lẫn điện thoại di động và hỗ trợ khả năng truy cập (accessibility).
+
+## 2. Website khảo sát
 
 **Tiki – https://tiki.vn**, sàn thương mại điện tử dành cho khách hàng Việt Nam mua sắm đồ dùng online
 
@@ -23,13 +26,19 @@ Khu vực khảo sát: Trang chủ, Danh mục sản phẩm, Chi tiết sản ph
 
 *Ghi chú ký hiệu:* `[QS]`: Đã quan sát thực tế; `[CKC]`: Chưa kiểm chứng trực tiếp trên Tiki; `[AI]`: Đề xuất phân tích từ AI.
 
-## 2. Khu vực chọn cải tiến và lý do
+##  Khu vực chọn cải tiến và lý do
 
 **Khu vực:** thẻ hiển thị sản phẩm (product card).
 
 **Lý do:** thẻ sản phẩm xuất hiện ở danh mục và kết quả tìm kiếm, nên là nơi người mua so sánh giá nhiều nhất. Mục tiêu cải tiến là làm rõ **giá gốc, giá giảm và tỷ lệ giảm** để người mua hiểu ngay mình tiết kiệm được bao nhiêu, và chưa có nút mua ngay để tạo sự liền mạch cho khách hàng
 
-## 3. Công nghệ sử dụng
+## 3. Chức năng
+- Hiển thị danh sách sản phẩm dưới dạng lưới (Grid layout) đáp ứng chuẩn Mobile-first.
+- Hiển thị thông tin sản phẩm đầy đủ: hình ảnh vuông chuẩn tỉ lệ 1:1, tên sản phẩm, xếp hạng sao, số lượng đã bán.
+- Khối hiển thị giá minh bạch: phân biệt rõ giá hiện tại, giá gốc gạch ngang và nhãn tỷ lệ giảm giá (%).
+- Tương tác người dùng: toàn bộ thẻ sản phẩm có thể nhấp chuột, tích hợp nút "Mua ngay" nổi bật và hiệu ứng hover/focus rõ ràng.
+
+## 4. Công nghệ sử dụng
 
 | Công nghệ | Dùng để |
 |---|---|
@@ -44,8 +53,18 @@ Khu vực khảo sát: Trang chủ, Danh mục sản phẩm, Chi tiết sản ph
 
 Không dùng JavaScript hay framework.
 
+## 5. Hướng Dẫn Chạy Vấn Đáp Và Kiểm Thử
 
-## 4. Cải tiến đã thực hiện
+### Cách chạy dự án:
+1. Tải thư mục mã nguồn về máy tính.
+2. Mở file `index.html` bằng trình duyệt web bất kỳ hoặc phần mềm VS Code.
+
+### Các điểm cần kiểm tra khi đánh giá:
+- Giá bán hiện tại có hiển thị rõ ràng hơn so với giá gốc và phần trăm giảm giá không.
+- Thử thay đổi kích thước trình duyệt từ máy tính xuống di động để kiểm tra khả năng tự động chuyển từ 4 cột sang 2 cột.
+- Kiểm tra các thẻ sản phẩm có tên ngắn và tên dài để xác nhận chiều cao toàn bộ các thẻ và vị trí nút bấm luôn thẳng hàng.
+
+## 6. Cải tiến đã thực hiện
 
 | Vấn đề | Cải tiến |
 |---|---|
@@ -61,20 +80,12 @@ Không dùng JavaScript hay framework.
 
 CSS tổ chức theo 6 phần có đánh số: Tokens, Base, Layout, Header/Footer, Thẻ sản phẩm (đặt tên theo BEM), Responsive.
 
-## 5. Hướng Dẫn Chạy Vấn Đáp Và Kiểm Thử
 
-### Cách chạy dự án:
-1. Tải thư mục mã nguồn về máy tính.
-2. Mở file `index.html` bằng trình duyệt web bất kỳ hoặc phần mềm VS Code.
+## 7. Hỗ trợ từ AI
+Phân tích & Đề xuất: Sử dụng AI để lập bảng phân tích 5 khu vực khảo sát Tiki, đề xuất cấu trúc ngữ nghĩa HTML5, phương án tổ chức CSS theo BEM và các quy tắc responsive.
 
-### Các điểm cần kiểm tra khi đánh giá:
-- Giá bán hiện tại có hiển thị rõ ràng hơn so với giá gốc và phần trăm giảm giá không.
-- Thử thay đổi kích thước trình duyệt từ máy tính xuống di động để kiểm tra khả năng tự động chuyển từ 4 cột sang 2 cột.
-- Kiểm tra các thẻ sản phẩm có tên ngắn và tên dài để xác nhận chiều cao toàn bộ các thẻ và vị trí nút bấm luôn thẳng hàng.
+Tạo mã ban đầu & Sửa lỗi: AI hỗ trợ viết khung HTML/CSS ban đầu và chẩn đoán lỗi đường dẫn file CSS do phân biệt chữ hoa/thường trên môi trường Linux của GitHub Pages.
 
-## 6. Hạn chế
+Kiểm tra & Điều chỉnh cá nhân: Trực tiếp kiểm thử giao diện trên trình duyệt, tự tay điều chỉnh lại tên file/thư mục, thêm quy tắc CSS object-fit: cover cho khung ảnh vuông và viết nội dung phân tích thực tế trong báo cáo.
 
-- Dữ liệu sản phẩm, giá và hình ảnh là dữ liệu mẫu tự đặt, không lấy từ Tiki.
-- Nút "Mua ngay" chưa có chức năng (chưa dùng JavaScript).
-- Tỷ lệ giảm đang viết sẵn trong HTML. Khi làm hệ thống thật, máy chủ nên tính theo công thức `(giá gốc − giá giảm) / giá gốc` rồi làm tròn.
-- Chưa kiểm thử trên nhiều trình duyệt và thiết bị thật. Mới chạy thử trên Microsoft Edge (máy tính).
+(Chi tiết nhật ký câu lệnh và quá trình làm việc với AI được lưu tại file AI_USAGE_LOG.md).
