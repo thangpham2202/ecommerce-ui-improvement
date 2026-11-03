@@ -84,21 +84,19 @@ img { display: block; max-width: 100%; height: auto; }
   overflow: hidden;
 }
 
-/* BỔ SUNG width: 100% VÀ min-height: 0 ĐỂ ÉP KHUNG VUÔNG KHÔNG BỊ GIÃN */
 .product-card__media {
-  width: 100%;
-  aspect-ratio: 1 / 1;                    /* khung ảnh vuông 1:1 */
-  min-height: 0;                          /* ngăn Flexbox kéo dài khung */
+  width: 100%;                            /* Phủ rộng 100% khung chứa */
+  aspect-ratio: 1 / 1;                    /* Khung ảnh vuông 1:1 */
+  min-height: 0;                          /* Ngăn Flexbox tự động kích chiều cao */
   overflow: hidden;
   background: #f8f9fa;
 }
 
-/* SỬA object-position: top ĐỂ LẤY ĐƯỢC PHẦN ĐẦU NGƯỜI MẪU CỦA ÁO THUN */
 .product-card__media img { 
   width: 100%; 
   height: 100%; 
-  object-fit: cover; 
-  object-position: top; 
+  object-fit: cover;                      /* Cắt cúp vừa đặn khung vuông */
+  object-position: center;                /* CĂN GIỮA CHUẨN: Giữ trọn tai nghe & dáng áo thun */
   display: block;
 }
 
@@ -158,13 +156,9 @@ img { display: block; max-width: 100%; height: auto; }
 .product-card__fav:focus-visible,
 .site-nav a:focus-visible,
 .site-logo:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 3px; }
-/* Buổi 2 (sửa lỗi Bước 8): chỉ viền cả thẻ khi LIÊN KẾT tên sản phẩm được focus bằng bàn phím.
-   Trước đây dùng :focus-within nên khi Tab vào nút, thẻ và nút cùng hiện viền (2 viền chồng nhau). */
 .product-card:has(.product-card__link:focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
 
 /* 7. RESPONSIVE (mobile-first) */
-/* Buổi 2 (sửa lỗi Bước 8): danh sách có 4 sản phẩm nên chỉ dùng 2 cột (điện thoại, máy tính bảng)
-   và 4 cột (màn hình rộng). Bỏ mốc 3 cột và 5 cột vì làm lệch hàng / thừa ô trống. */
 @media (min-width: 640px) {
   :root { --gap: 12px; --pad: 12px; }
 }
