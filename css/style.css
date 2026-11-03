@@ -85,19 +85,31 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .product-card__media {
-  width: 100%;                            /* Phủ rộng 100% khung chứa */
-  aspect-ratio: 1 / 1;                    /* Khung ảnh vuông 1:1 */
-  min-height: 0;                          /* Ngăn Flexbox tự động kích chiều cao */
+  width: 100%;
+  aspect-ratio: 1 / 1;                    /* khung ảnh vuông 1:1 */
+  min-height: 0;                          /* chặn Flexbox tự động co giãn chiều cao */
   overflow: hidden;
-  background: #f8f9fa;
+  background: #ffffff;
 }
 
 .product-card__media img { 
   width: 100%; 
   height: 100%; 
-  object-fit: cover;                      /* Cắt cúp vừa đặn khung vuông */
-  object-position: center;                /* CĂN GIỮA CHUẨN: Giữ trọn tai nghe & dáng áo thun */
   display: block;
+}
+
+/* 5.1 - VẬT THỂ NỀN TRẮNG (Tai nghe, Nồi chiên): Dùng contain + padding để KHÔNG BỊ CẮT VIỀN */
+.product-card__media img[src*="tai-nghe"],
+.product-card__media img[src*="noi-chien"] {
+  object-fit: contain;
+  padding: 10px;
+}
+
+/* 5.2 - ẢNH STUDIO/MẪU (Áo thun, Sữa rửa mặt): Dùng cover để TRÀN KHUNG ĐẸP MẮT */
+.product-card__media img[src*="ao-thun"],
+.product-card__media img[src*="sua-rua-mat"] {
+  object-fit: cover;
+  object-position: center;
 }
 
 .product-card__body {
