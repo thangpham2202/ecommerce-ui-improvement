@@ -84,19 +84,19 @@ img { display: block; max-width: 100%; height: auto; }
   overflow: hidden;
 }
 
-/* ĐÃ CẬP NHẬT TRỰC TIẾP ĐOẠN KHÓA CỨNG TỶ LỆ LÊN 1:1 */
+/* ĐÃ ĐỒNG NHẤT KHUNG ẢNH VUÔNG 1:1 GIỐNG VS CODE */
 .product-card__media {
-  width: 100%;
-  aspect-ratio: 1 / 1;                    /* Khung ảnh vuông 1:1 */
-  min-height: 0;                          /* Bắt buộc Flexbox không tự co giãn theo chiều cao ảnh gốc */
-  overflow: hidden;                       /* Cắt phần ảnh thừa ra ngoài khung vuông */
+  width: 100%;                            /* Phủ kín chiều rộng khung chứa */
+  aspect-ratio: 1 / 1;                    /* Tỷ lệ khung vuông 1:1 */
+  min-height: 0;                          /* Ngăn Flexbox tự động nới rộng chiều cao theo ảnh gốc */
+  overflow: hidden;                       /* Cắt phần thừa bên ngoài khung vuông */
   background: #f8f9fa;
 }
 
 .product-card__media img { 
   width: 100%; 
   height: 100%; 
-  object-fit: cover;                      /* Cắt tỉa ảnh ôm trọn khung vuông mà không làm biến dạng */
+  object-fit: cover;                      /* Cắt tỉa ảnh ôm trọn khung vuông 1:1 không bị méo */
   object-position: center; 
   display: block;
 }
