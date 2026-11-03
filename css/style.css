@@ -1,13 +1,7 @@
 /* ==========================================================
    style.css – Trang "Ưu đãi hôm nay" (mobile-first)
-   Buổi 1: bố cục, thẻ sản phẩm, responsive.
-   Buổi 2: Box Model + selector, Flexbox, CSS Grid, hover/focus.
-   Mục lục: 1. Tokens  2. Base  3. Layout (Grid)  4. Header/Footer (Flexbox)
-            5. Thẻ sản phẩm (Box Model, Flexbox)  6. Hover & Focus
-            7. Responsive
    ========================================================== */
 
-/* 1. TOKENS – khai báo màu, khoảng cách một chỗ, dùng lại bằng var() */
 :root {
   --font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --c-page: #f3f4f6;
@@ -25,8 +19,7 @@
   --pad: 10px;
 }
 
-/* 2. BASE */
-*, *::before, *::after { box-sizing: border-box; } /* width gồm cả padding + border */
+*, *::before, *::after { box-sizing: border-box; }
 body {
   margin: 0;
   font: 400 14px/1.45 var(--font);
@@ -41,28 +34,28 @@ img { display: block; max-width: 100%; height: auto; }
   clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-/* 3. LAYOUT – CSS GRID cho danh sách sản phẩm */
+/* LAYOUT */
 .page-title { margin: 20px 0 4px; font-size: 1.375rem; }
 .page-sub { margin: 0 0 16px; color: var(--c-muted); }
 .product-grid {
-  display: grid;                                          /* bật Grid cho phần tử cha */
-  grid-template-columns: repeat(2, minmax(0, 1fr));       /* 2 cột bằng nhau */
-  gap: var(--gap);                                        /* khoảng cách giữa các ô */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
   list-style: none; margin: 0; padding: 0;
 }
 
-/* 4. HEADER / FOOTER – FLEXBOX */
+/* HEADER / FOOTER */
 .site-header { background: var(--c-card); border-bottom: 1px solid var(--c-line); }
-.site-header .container {                  /* selector hậu duệ (descendant) */
-  display: flex;                          /* cha: logo + nav thành 1 hàng */
-  align-items: center;                    /* căn giữa theo chiều dọc (trục phụ) */
-  justify-content: space-between;         /* logo sát trái, menu sát phải (trục chính) */
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   min-height: 52px;
 }
 .site-logo { font-weight: 700; font-size: 1.125rem; color: var(--c-sale); }
 .site-nav ul {
-  display: flex;                          /* các li nằm cùng hàng */
-  gap: 8px;                               /* khoảng cách giữa các liên kết menu */
+  display: flex;
+  gap: 8px;
   margin: 0; padding: 0; list-style: none;
 }
 .site-nav a {
@@ -73,55 +66,43 @@ img { display: block; max-width: 100%; height: auto; }
 .site-nav a[aria-current="page"] { color: var(--c-ink); font-weight: 500; }
 .site-footer { margin-top: 32px; padding: 16px 0; font-size: .8125rem; color: var(--c-muted); border-top: 1px solid var(--c-line); }
 
-/* 5. THẺ SẢN PHẨM (.product-card, đặt tên theo BEM) – BOX MODEL */
+/* THẺ SẢN PHẨM */
 .product-card {
   position: relative;
-  display: flex; flex-direction: column;  /* Flexbox: xếp ảnh, nội dung, nút theo chiều dọc */
+  display: flex; flex-direction: column;
   height: 100%;
   background: var(--c-card);
-  border: 1px solid var(--c-line);        /* border */
-  border-radius: var(--r-card);           /* bo góc */
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-card);
   overflow: hidden;
 }
 
 .product-card__media {
   width: 100%;
-  aspect-ratio: 1 / 1;                    /* khung ảnh vuông 1:1 */
-  min-height: 0;                          /* chặn Flexbox tự động co giãn chiều cao */
+  aspect-ratio: 1 / 1;
+  min-height: 0;
   overflow: hidden;
-  background: #ffffff;
+  background: #f8f9fa;
 }
 
 .product-card__media img { 
   width: 100%; 
   height: 100%; 
-  display: block;
-}
-
-/* 5.1 - VẬT THỂ NỀN TRẮNG (Tai nghe, Nồi chiên): Dùng contain + padding để KHÔNG BỊ CẮT VIỀN */
-.product-card__media img[src*="tai-nghe"],
-.product-card__media img[src*="noi-chien"] {
-  object-fit: contain;
-  padding: 10px;
-}
-
-/* 5.2 - ẢNH STUDIO/MẪU (Áo thun, Sữa rửa mặt): Dùng cover để TRÀN KHUNG ĐẸP MẮT */
-.product-card__media img[src*="ao-thun"],
-.product-card__media img[src*="sua-rua-mat"] {
   object-fit: cover;
-  object-position: center;
+  object-position: top;                   /* ĐÃ ĐỔI THÀNH TOP ĐỂ LẤY ĐẦU NGƯỜI MẪU */
+  display: block;
 }
 
 .product-card__body {
   flex: 1; display: flex; flex-direction: column; gap: 6px;
-  padding: var(--pad);                    /* padding: đệm giữa viền thẻ và nội dung */
+  padding: var(--pad);
 }
 .product-card__title {
   margin: 0; font-size: .875rem; font-weight: 500; line-height: 1.35;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   min-height: 2.7em;
 }
-.product-card__link::after { content: ""; position: absolute; inset: 0; } /* cả thẻ đều bấm được */
+.product-card__link::after { content: ""; position: absolute; inset: 0; }
 .product-card__meta { margin: 0; font-size: .75rem; color: var(--c-muted); }
 
 .price { margin: auto 0 0; display: flex; flex-direction: column; gap: 2px; }
@@ -132,30 +113,29 @@ img { display: block; max-width: 100%; height: auto; }
   font-size: .75rem; font-weight: 700; color: var(--c-sale);
   background: var(--c-sale-bg); padding: 1px 6px; border-radius: var(--r-chip);
 }
-.product-card:not(.has-discount) .price__now { color: var(--c-ink); } /* không giảm giá: không dùng màu đỏ */
+.product-card:not(.has-discount) .price__now { color: var(--c-ink); }
 
-/* Nhóm nút thao tác – FLEXBOX (Buổi 2) */
 .product-card__actions {
-  position: relative; z-index: 1;         /* nổi trên lớp liên kết phủ kín (::after) */
-  display: flex;                          /* cha: 2 nút cùng hàng */
-  align-items: stretch;                   /* 2 nút cao bằng nhau */
-  gap: 8px;                               /* khoảng cách giữa 2 nút */
-  margin: 0 var(--pad) var(--pad);        /* margin: cách mép ngoài của thẻ */
+  position: relative; z-index: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0 var(--pad) var(--pad);
 }
-.product-card .product-card__btn {        /* selector hậu duệ: .product-card .product-card__btn */
-  flex: 1;                                /* nút Mua ngay chiếm phần còn lại */
+.product-card .product-card__btn {
+  flex: 1;
   padding: 9px; font: inherit; font-weight: 700;
   color: #fff; background: var(--c-sale);
   border: 0; border-radius: 6px; cursor: pointer;
 }
 .product-card__fav {
-  flex: 0 0 40px;                         /* nút Yêu thích rộng cố định 40px */
+  flex: 0 0 40px;
   font: inherit; font-size: 1.125rem; line-height: 1;
   color: var(--c-sale); background: var(--c-card);
   border: 1px solid var(--c-line); border-radius: 6px; cursor: pointer;
 }
 
-/* 6. HOVER & FOCUS (Buổi 2) – pseudo-class + transition */
+/* HOVER & FOCUS */
 .product-card__btn,
 .product-card__fav { transition: background-color .2s ease, border-color .2s ease; }
 .product-card__btn:hover { background: var(--c-sale-dark); }
@@ -163,14 +143,13 @@ img { display: block; max-width: 100%; height: auto; }
 .site-nav a:hover { color: var(--c-ink); background: var(--c-line); }
 .product-card__link:hover { text-decoration: underline; }
 
-/* :focus-visible chỉ hiện khi điều hướng bằng bàn phím (Tab) */
 .product-card__btn:focus-visible,
 .product-card__fav:focus-visible,
 .site-nav a:focus-visible,
 .site-logo:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 3px; }
 .product-card:has(.product-card__link:focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
 
-/* 7. RESPONSIVE (mobile-first) */
+/* RESPONSIVE */
 @media (min-width: 640px) {
   :root { --gap: 12px; --pad: 12px; }
 }
