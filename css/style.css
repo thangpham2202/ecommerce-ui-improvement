@@ -91,19 +91,19 @@ img { display: block; max-width: 100%; height: auto; }
   display: block;
 }
 
-/* 1. Tai nghe: Dùng contain + padding để hiển thị trọn vẹn 100% quai đeo */
+/* 1. Tai nghe: Dùng contain + padding rộng để KHÔNG BỊ CẮT QUAI */
 .product-card__media img[src*="tai-nghe"] {
   object-fit: contain;
-  padding: 14px;
+  padding: 16px;
 }
 
-/* 2. Nồi chiên: Dùng contain + padding vừa vặn */
+/* 2. Nồi chiên: Dùng contain vừa vặn */
 .product-card__media img[src*="noi-chien"] {
   object-fit: contain;
   padding: 10px;
 }
 
-/* 3. Áo thun & Sữa rửa mặt: Dùng cover + căn đỉnh để vừa khít khung và thấy rõ mặt người mẫu */
+/* 3. Áo thun & Sữa rửa mặt: Dùng cover + căn đỉnh để GIỮ ĐẦU & MẶT NGƯỜI MẪU */
 .product-card__media img[src*="ao-thun"],
 .product-card__media img[src*="sua-rua-mat"] {
   object-fit: cover;
