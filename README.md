@@ -1,91 +1,69 @@
-# Cải tiến thẻ hiển thị sản phẩm cho website thương mại điện tử
+# Bài tập cá nhân Buổi 2 – HTML5 & CSS3 (Phát triển ứng dụng WEB/TMĐT)
 
 - **Họ tên:** Phạm Văn Thắng
-- **MSSV:** 31241027009 
-- **Ngày thực hiện:** 19/10/2026
+- **MSSV:** 31241027009
+- **Giảng viên:** TS Nguyễn Mạnh Tuấn
+- **Ngày thực hiện:** 03/11/2026
 
-## 1. Giới thiệu
-Dự án thực hiện cải tiến giao diện **Thẻ hiển thị sản phẩm (Product Card)** cho trang web thương mại điện tử. Mục tiêu nhằm giúp người mua dễ dàng so sánh giá bán, nhận biết tỷ lệ giảm giá, tối ưu trải nghiệm người dùng trên cả màn hình máy tính lẫn điện thoại di động và hỗ trợ khả năng truy cập (accessibility).
+## 1. Giới thiệu bài tập
 
-## 2. Website khảo sát
+Tiếp tục phát triển website "Ưu đãi hôm nay – Cửa hàng mẫu" từ Buổi 1 (cùng repository). Buổi 2 thực hành HTML5 ngữ nghĩa, CSS selector, Box Model, Flexbox, CSS Grid, hover/focus và kiểm tra lỗi giao diện.
 
-**Tiki – https://tiki.vn**, sàn thương mại điện tử dành cho khách hàng Việt Nam mua sắm đồ dùng online
+## 2. Website tham khảo và khu vực đã cải tiến
 
-Khu vực khảo sát: Trang chủ, Danh mục sản phẩm, Chi tiết sản phẩm, Tìm kiếm, Giỏ hàng.
+- Website tham khảo ở Buổi 1: Tiki (https://tiki.vn); dữ liệu sản phẩm là dữ liệu mẫu tự đặt.
+- **Khu vực cải tiến:** danh sách 4 sản phẩm và thẻ sản phẩm; thực hành Flexbox ở header/menu và nhóm nút trong thẻ.
 
-**Phạm vi kiểm chứng:** trong lần khảo sát với AI, chỉ phần văn bản mô tả của trang chủ Tiki được đọc trực tiếp. Phần văn bản này nhắc đến giá sốc mỗi ngày, cửa hàng Official, Freeship+, TikiNOW, TikiCARD và các tiện ích như thẻ cào, hóa đơn, bảo hiểm. Các nhận xét về danh mục, chi tiết sản phẩm, tìm kiếm và giỏ hàng là **giả định chung của thương mại điện tử, chưa kiểm chứng trên Tiki**. Bảng phân tích gốc có gắn nhãn `[QS]` (đã quan sát), `[CKC]` (chưa kiểm chứng) và `[AI]` (đề xuất của AI) để phân biệt.
-### Bảng khảo sát 5 khu vực trên website Tiki (tiki.vn)
+## 3. Kỹ thuật HTML5/CSS3 đã thực hành
 
-| Khu vực | Chức năng đang cung cấp | Điểm hợp lý trong thiết kế | Điểm có thể cải thiện | Đề xuất cải tiến & Lý do |
-| :--- | :--- | :--- | :--- | :--- |
-| **1. Trang chủ** | Hiển thị banner khuyến mãi, danh mục tiện ích (TikiNOW, Astra, Thẻ cào), khối "Giá tốt mỗi ngày" `[QS]`. | Khối sản phẩm giá tốt đặt ở vị trí nổi bật, thu hút sự chú ý ngay khi truy cập `[QS]`. | Banner quảng cáo dày đặc gây xao nhãng và làm rối mắt người dùng `[AI]`. | Gộp các banner theo nhóm chủ đề để giao diện gọn gàng và tăng tốc độ tải trang `[AI]`. |
-| **2. Danh mục sản phẩm** | Phân loại sản phẩm theo ngành hàng, tích hợp bộ lọc (thương hiệu, giá, đánh giá sao) `[CKC]`. | Bộ lọc xếp dọc bên trái giúp người dùng dễ chọn lọc thông tin theo nhu cầu `[CKC]`. | Chiều cao các thẻ sản phẩm chưa đồng đều khi tên sản phẩm quá dài `[AI]`. | Giới hạn tên sản phẩm trong 2 dòng (`-webkit-line-clamp: 2`) để lưới sản phẩm cân đối `[AI]`. |
-| **3. Chi tiết sản phẩm** | Trình bày gallery ảnh, giá bán, giá gốc, mô tả kỹ thuật, thông tin giao hàng và nút chọn mua `[CKC]`. | Thông tin ưu đãi (Freeship, Hoàn tiền) đặt ngay dưới giá giúp kích thích mua hàng `[CKC]`. | Khối so sánh giá gốc và giá giảm chưa nổi bật khi xem trên màn hình điện thoại `[AI]`. | Thiết kế lại khối giá hai tầng với màu đỏ tương phản cho giá hiện tại để dễ nhận biết `[AI]`. |
-| **4. Tìm kiếm** | Thanh tìm kiếm cố định trên header, gợi ý từ khóa hot và lưu lịch sử tìm kiếm `[CKC]`. | Ô tìm kiếm to, nằm chính giữa header giúp người dùng dễ dàng thao tác ở mọi trang `[CKC]`. | Kết quả gợi ý nhanh chưa hiển thị thông tin sản phẩm đang có giảm giá hay không `[AI]`. | Bổ sung nhãn giảm giá (%) nhỏ cạnh tên sản phẩm gợi ý để tăng tỷ lệ nhấp chuột `[AI]`. |
-| **5. Giỏ hàng** | Liệt kê sản phẩm đã chọn, điều chỉnh số lượng, áp mã giảm giá và tính tổng tiền đơn hàng `[CKC]`. | Bảng tóm tắt thể hiện rõ phí vận chuyển và số tiền người mua tiết kiệm được `[CKC]`. | Nút "Thanh toán" ở màn hình điện thoại bị khuất nếu danh sách sản phẩm dài `[AI]`. | Cố định (sticky) thanh tổng tiền và nút "Thanh toán" ở đáy màn hình di động để dễ bấm `[AI]`. |
-
-*Ghi chú ký hiệu:* `[QS]`: Đã quan sát thực tế; `[CKC]`: Chưa kiểm chứng trực tiếp trên Tiki; `[AI]`: Đề xuất phân tích từ AI.
-
-##  Khu vực chọn cải tiến và lý do
-
-**Khu vực:** thẻ hiển thị sản phẩm (product card).
-
-**Lý do:** thẻ sản phẩm xuất hiện ở danh mục và kết quả tìm kiếm, nên là nơi người mua so sánh giá nhiều nhất. Mục tiêu cải tiến là làm rõ **giá gốc, giá giảm và tỷ lệ giảm** để người mua hiểu ngay mình tiết kiệm được bao nhiêu, và chưa có nút mua ngay để tạo sự liền mạch cho khách hàng
-
-## 3. Chức năng
-- Hiển thị danh sách sản phẩm dưới dạng lưới (Grid layout) đáp ứng chuẩn Mobile-first.
-- Hiển thị thông tin sản phẩm đầy đủ: hình ảnh vuông chuẩn tỉ lệ 1:1, tên sản phẩm, xếp hạng sao, số lượng đã bán.
-- Khối hiển thị giá minh bạch: phân biệt rõ giá hiện tại, giá gốc gạch ngang và nhãn tỷ lệ giảm giá (%).
-- Tương tác người dùng: toàn bộ thẻ sản phẩm có thể nhấp chuột, tích hợp nút "Mua ngay" nổi bật và hiệu ứng hover/focus rõ ràng.
-
-## 4. Công nghệ sử dụng
-
-| Công nghệ | Dùng để |
+| Kỹ thuật | Vị trí |
 |---|---|
-| HTML5 | Cấu trúc ngữ nghĩa: `header`, `main`, `section`, `article`, `footer`, `ul/li`, `del`, `button`. |
-| CSS3 | Toàn bộ giao diện trong file riêng `style.css`. |
-| CSS Grid | Lưới thẻ sản phẩm, đổi số cột theo màn hình. |
-| Flexbox | Xếp nội dung bên trong thẻ theo chiều dọc, căn hàng giá. |
-| CSS Custom Properties | Khai báo màu, khoảng cách ở một chỗ (`--c-sale`, `--gap`, ...). |
-| Media queries | Responsive mobile-first. |
-| Google Fonts (Be Vietnam Pro) | Phông hỗ trợ tiếng Việt, có phông dự phòng nếu không có mạng. |
-| Ảnh SVG | Ảnh minh họa, được nhúng trực tiếp vào HTML. |
+| HTML5 ngữ nghĩa | `header`, `nav`, `main`, `section`, `article`, `footer`, `ul/li`, `del` |
+| CSS ngoài, liên kết | `css/style.css` liên kết trong `<head>` |
+| Selector | element (`body`, `img`), class (`.product-card`), descendant (`.site-header .container`) |
+| Box Model | `margin`, `padding`, `border`, `border-radius`, `box-sizing: border-box` |
+| Flexbox | `.site-header .container`, `.site-nav ul`, `.product-card__actions` |
+| CSS Grid | `.product-grid` (2 cột, 4 cột từ 960 px) |
+| Hover/focus | `:hover`, `:focus-visible`, `transition` |
 
-Không dùng JavaScript hay framework.
+## 4. Hướng dẫn chạy website
 
-## 5. Hướng Dẫn Chạy Vấn Đáp Và Kiểm Thử
+Mở `index.html` bằng trình duyệt (không cần cài đặt). Giữ nguyên cấu trúc:
 
-### Cách chạy dự án:
-1. Tải thư mục mã nguồn về máy tính.
-2. Mở file `index.html` bằng trình duyệt web bất kỳ hoặc phần mềm VS Code.
+```
+├── index.html
+├── css/style.css
+├── images/ (4 ảnh JPEG 800x800)
+├── screenshots/ (ảnh minh họa, trước/sau)
+├── README.md
+└── AI_USAGE_LOG.md
+```
 
-### Các điểm cần kiểm tra khi đánh giá:
-- Giá bán hiện tại có hiển thị rõ ràng hơn so với giá gốc và phần trăm giảm giá không.
-- Thử thay đổi kích thước trình duyệt từ máy tính xuống di động để kiểm tra khả năng tự động chuyển từ 4 cột sang 2 cột.
-- Kiểm tra các thẻ sản phẩm có tên ngắn và tên dài để xác nhận chiều cao toàn bộ các thẻ và vị trí nút bấm luôn thẳng hàng.
+## 5. Những thay đổi đã thực hiện
 
-## 6. Cải tiến đã thực hiện
+- Menu chuyển sang danh sách `ul/li`, thêm "Trang chủ", `aria-current`.
+- Thêm nhóm nút `.product-card__actions` (Mua ngay + Yêu thích, mới chỉ là giao diện) bằng Flexbox.
+- Gom khối CSS bị lặp cuối tệp vào đúng mục; thêm chú thích cho từng nhóm thuộc tính.
+- Thêm hover, `transition`, `:focus-visible` cho menu và nút.
+- Sửa lỗi (Bước 8): viền focus kép; lưới 3/5 cột làm lệch hàng với 4 sản phẩm; ảnh tai nghe bị cắt/lộ dải; ảnh có đuôi `.jpg` nhưng là PNG/WEBP.
 
-| Vấn đề | Cải tiến |
-|---|---|
-| Giá gốc, giá giảm, % giảm dễ lẫn với nhau | Khối giá hai tầng: giá hiện tại chữ lớn, đậm, màu đỏ; bên dưới là giá gốc gạch ngang (`<del>`) kèm nhãn `-32%`. |
-| Người dùng trình đọc màn hình không phân biệt được các mức giá | Thêm nhãn ẩn bằng `.sr-only`: "Giá hiện tại", "Giá gốc", "Giảm". |
-| Sản phẩm không giảm giá vẫn dùng màu đỏ gây hiểu nhầm | Chỉ thẻ có `.has-discount` mới dùng màu đỏ cho giá. Thẻ không giảm giá hiện giá màu đen, không có giá gạch và nhãn %. |
-| Tên dài làm các thẻ cao thấp khác nhau | Giới hạn 2 dòng (`-webkit-line-clamp`) và đặt `min-height`. |
-| Ảnh tải chậm làm bố cục nhảy | `aspect-ratio: 1/1`, kèm `width` và `height` trên `<img>`. |
-| Khó bấm trên điện thoại | Cả thẻ bấm được nhờ `::after` phủ kín; nút "Mua ngay" nằm trên lớp đó. |
-| Hiển thị chưa phù hợp nhiều thiết bị | Lưới 2 cột (dưới 640px), 3 cột (từ 640px), 4 cột (từ 960px), 5 cột (từ 1200px). |
-| Hiệu ứng rê chuột bị kẹt trên điện thoại | Chỉ bật hover trong `@media (hover: hover)`. |
-| Thiếu hỗ trợ bàn phím | Viền focus rõ (`:focus-within`, `:focus-visible`) và tôn trọng `prefers-reduced-motion`. |
+## 6. Báo cáo kiểm thử
 
-CSS tổ chức theo 6 phần có đánh số: Tokens, Base, Layout, Header/Footer, Thẻ sản phẩm (đặt tên theo BEM), Responsive.
+| Nội dung kiểm tra | Kết quả | Ghi chú |
+|---|---|---|
+| Trang HTML mở được | Đạt | Không có thẻ chưa đóng |
+| CSS được áp dụng | Đạt | `css/style.css` trả về 200 |
+| Hình ảnh hiển thị đúng | Đạt | 4 ảnh 800×800, tỷ lệ 1:1 |
+| Liên kết hoạt động | Đạt | Logo/Trang chủ → `index.html`; các liên kết còn lại là `#` (chờ các buổi sau) |
+| Bố cục không bị tràn nghiêm trọng | Đạt | Không cuộn ngang ở 1366, 768, 390 px |
+| Hover/focus hoạt động | Đạt | Nút đổi `#d0261b` → `#b01e14`; viền focus 3 px |
+| Đã tự sửa ít nhất một vấn đề | Đạt | 4 lỗi, xem mục 5 |
 
+## 7. Công cụ AI và cách kiểm tra
 
-## 7. Hỗ trợ từ AI
-Phân tích & Đề xuất: Sử dụng AI để lập bảng phân tích 5 khu vực khảo sát Tiki, đề xuất cấu trúc ngữ nghĩa HTML5, phương án tổ chức CSS theo BEM và các quy tắc responsive.
+Dùng Claude (Anthropic) cho 9 prompt của đề; chi tiết trong `AI_USAGE_LOG.md`. Mọi đề xuất đều được chạy thử trên trình duyệt ở 3 độ rộng và kiểm tra bằng bàn phím trước khi đưa vào bài.
 
-Tạo mã ban đầu & Sửa lỗi: AI hỗ trợ viết khung HTML/CSS ban đầu và chẩn đoán lỗi đường dẫn file CSS do phân biệt chữ hoa/thường trên môi trường Linux của GitHub Pages.
+## 8. Đường dẫn
 
-Kiểm tra & Điều chỉnh cá nhân: Trực tiếp kiểm thử giao diện trên trình duyệt, tự tay điều chỉnh lại tên file/thư mục, thêm quy tắc CSS object-fit: cover cho khung ảnh vuông và viết nội dung phân tích thực tế trong báo cáo.
-
-(Chi tiết nhật ký câu lệnh và quá trình làm việc với AI được lưu tại file AI_USAGE_LOG.md).
+- Repository: [điền link GitHub của bạn]
+- Website triển khai (nếu có): [chưa triển khai]
