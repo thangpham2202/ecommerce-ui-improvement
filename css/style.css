@@ -84,10 +84,11 @@ img { display: block; max-width: 100%; height: auto; }
   overflow: hidden;
 }
 
-/* ĐÃ SỬA LẠI ĐOẠN NÀY ĐỂ ÉP KHUNG ẢNH VUÔNG BẰNG NHAU 100% */
+/* ĐÃ CẬP NHẬT TRỰC TIẾP ĐOẠN KHÓA CỨNG TỶ LỆ LÊN 1:1 */
 .product-card__media {
-  width: 100%;                            /* Ép chiều rộng full khung */
-  aspect-ratio: 1 / 1;                    /* Ép tỉ lệ khung vuông 1:1 */
+  width: 100%;
+  aspect-ratio: 1 / 1;                    /* Khung ảnh vuông 1:1 */
+  min-height: 0;                          /* Bắt buộc Flexbox không tự co giãn theo chiều cao ảnh gốc */
   overflow: hidden;                       /* Cắt phần ảnh thừa ra ngoài khung vuông */
   background: #f8f9fa;
 }
@@ -95,8 +96,9 @@ img { display: block; max-width: 100%; height: auto; }
 .product-card__media img { 
   width: 100%; 
   height: 100%; 
-  object-fit: cover;                      /* Cắt ảnh vừa khít khung vuông không bị méo */
+  object-fit: cover;                      /* Cắt tỉa ảnh ôm trọn khung vuông mà không làm biến dạng */
   object-position: center; 
+  display: block;
 }
 
 .product-card__body {
