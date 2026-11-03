@@ -1,99 +1,168 @@
-# Nhật ký sử dụng AI
+/* ==========================================================
+   style.css – Trang "Ưu đãi hôm nay" (mobile-first)
+   Buổi 1: bố cục, thẻ sản phẩm, responsive.
+   Buổi 2: Box Model + selector, Flexbox, CSS Grid, hover/focus.
+   Mục lục: 1. Tokens  2. Base  3. Layout (Grid)  4. Header/Footer (Flexbox)
+            5. Thẻ sản phẩm (Box Model, Flexbox)  6. Hover & Focus
+            7. Responsive
+   ========================================================== */
 
-- **Họ tên / MSSV:** Phạm Văn Thắng – 31241027009
-- **Ngày:** 20/10/2026
+/* 1. TOKENS – khai báo màu, khoảng cách một chỗ, dùng lại bằng var() */
+:root {
+  --font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --c-page: #f3f4f6;
+  --c-card: #ffffff;
+  --c-ink: #1f2937;
+  --c-muted: #6b7280;
+  --c-sale: #d0261b;
+  --c-sale-dark: #b01e14;
+  --c-sale-bg: #fdebe9;
+  --c-line: #e5e7eb;
+  --c-focus: #1d4ed8;
+  --r-card: 10px;
+  --r-chip: 4px;
+  --gap: 8px;
+  --pad: 10px;
+}
 
-> Các chỗ có dấu `[ĐIỀN]` hoặc ô `[ ]` là phần chỉ riêng tôi biết. Tôi chỉ ghi những gì tôi thực sự đã làm.
+/* 2. BASE */
+*, *::before, *::after { box-sizing: border-box; } /* width gồm cả padding + border */
+body {
+  margin: 0;
+  font: 400 14px/1.45 var(--font);
+  color: var(--c-ink);
+  background: var(--c-page);
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 12px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
 
-## 1. Tên công cụ AI
+/* 3. LAYOUT – CSS GRID cho danh sách sản phẩm */
+.page-title { margin: 20px 0 4px; font-size: 1.375rem; }
+.page-sub { margin: 0 0 16px; color: var(--c-muted); }
+.product-grid {
+  display: grid;                                          /* bật Grid cho phần tử cha */
+  grid-template-columns: repeat(2, minmax(0, 1fr));       /* 2 cột bằng nhau */
+  gap: var(--gap);                                        /* khoảng cách giữa các ô */
+  list-style: none; margin: 0; padding: 0;
+}
 
-**Claude** (do Anthropic phát triển), dùng qua giao diện chat web/ứng dụng. Phiên bản: Claude Sonnet 5.5.
+/* 4. HEADER / FOOTER – FLEXBOX */
+.site-header { background: var(--c-card); border-bottom: 1px solid var(--c-line); }
+.site-header .container {                 /* selector hậu duệ (descendant) */
+  display: flex;                          /* cha: logo + nav thành 1 hàng */
+  align-items: center;                    /* căn giữa theo chiều dọc (trục phụ) */
+  justify-content: space-between;         /* logo sát trái, menu sát phải (trục chính) */
+  min-height: 52px;
+}
+.site-logo { font-weight: 700; font-size: 1.125rem; color: var(--c-sale); }
+.site-nav ul {
+  display: flex;                          /* các li nằm cùng hàng */
+  gap: 8px;                               /* khoảng cách giữa các liên kết menu */
+  margin: 0; padding: 0; list-style: none;
+}
+.site-nav a {
+  display: block; padding: 8px 10px; border-radius: var(--r-chip);
+  color: var(--c-muted);
+  transition: color .2s ease, background-color .2s ease;
+}
+.site-nav a[aria-current="page"] { color: var(--c-ink); font-weight: 500; }
+.site-footer { margin-top: 32px; padding: 16px 0; font-size: .8125rem; color: var(--c-muted); border-top: 1px solid var(--c-line); }
 
-## 2. Mục đích sử dụng
+/* 5. THẺ SẢN PHẨM (.product-card, đặt tên theo BEM) – BOX MODEL */
+.product-card {
+  position: relative;
+  display: flex; flex-direction: column;  /* Flexbox: xếp ảnh, nội dung, nút theo chiều dọc */
+  height: 100%;
+  background: var(--c-card);
+  border: 1px solid var(--c-line);        /* border */
+  border-radius: var(--r-card);           /* bo góc */
+  overflow: hidden;
+}
+.product-card__media {
+  aspect-ratio: 1 / 1;                    /* khung ảnh vuông 1:1 */
+  background: #f8f9fa;
+}
+.product-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.product-card__body {
+  flex: 1; display: flex; flex-direction: column; gap: 6px;
+  padding: var(--pad);                    /* padding: đệm giữa viền thẻ và nội dung */
+}
+.product-card__title {
+  margin: 0; font-size: .875rem; font-weight: 500; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  min-height: 2.7em;
+}
+.product-card__link::after { content: ""; position: absolute; inset: 0; } /* cả thẻ đều bấm được */
+.product-card__meta { margin: 0; font-size: .75rem; color: var(--c-muted); }
 
-- Phân tích 5 khu vực của website Tiki.
-- Đề xuất phương án thiết kế thẻ sản phẩm.
-- Tạo mã HTML5/CSS3 ban đầu.
-- Sửa lỗi khi trang chạy bị mất định dạng và ảnh.
-- Soạn nháp `README.md` và `AI_USAGE_LOG.md`.
+.price { margin: auto 0 0; display: flex; flex-direction: column; gap: 2px; }
+.price__now { font-size: 1.125rem; font-weight: 700; line-height: 1.2; color: var(--c-sale); }
+.price__row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-height: 1.5rem; }
+.price__old { font-size: .8125rem; color: var(--c-muted); text-decoration: line-through; }
+.price__off {
+  font-size: .75rem; font-weight: 700; color: var(--c-sale);
+  background: var(--c-sale-bg); padding: 1px 6px; border-radius: var(--r-chip);
+}
+.product-card:not(.has-discount) .price__now { color: var(--c-ink); } /* không giảm giá: không dùng màu đỏ */
 
-## 3. Các prompt đã dùng
+/* Nhóm nút thao tác – FLEXBOX (Buổi 2) */
+.product-card__actions {
+  position: relative; z-index: 1;         /* nổi trên lớp liên kết phủ kín (::after) */
+  display: flex;                          /* cha: 2 nút cùng hàng */
+  align-items: stretch;                   /* 2 nút cao bằng nhau */
+  gap: 8px;                               /* khoảng cách giữa 2 nút */
+  margin: 0 var(--pad) var(--pad);        /* margin: cách mép ngoài của thẻ */
+}
+.product-card .product-card__btn {        /* selector hậu duệ: .product-card .product-card__btn */
+  flex: 1;                                /* nút Mua ngay chiếm phần còn lại */
+  padding: 9px; font: inherit; font-weight: 700;
+  color: #fff; background: var(--c-sale);
+  border: 0; border-radius: 6px; cursor: pointer;
+}
+.product-card__fav {
+  flex: 0 0 40px;                         /* nút Yêu thích rộng cố định 40px */
+  font: inherit; font-size: 1.125rem; line-height: 1;
+  color: var(--c-sale); background: var(--c-card);
+  border: 1px solid var(--c-line); border-radius: 6px; cursor: pointer;
+}
 
-| # | Nội dung prompt (tóm tắt) | Kết quả AI trả về |
-|---|---|---|
-| 1 | Đóng vai chuyên gia phân tích nghiệp vụ và UX, lập bảng phân tích 5 khu vực của Tiki (mục đích, thành phần giao diện, điểm thuận tiện, một vấn đề, một đề xuất). Yêu cầu không khẳng định tính năng chưa kiểm chứng, phân biệt quan sát và đề xuất của AI. | Bảng phân tích có nhãn `[QS]`, `[CKC]`, `[AI]`. AI nói rõ chỉ đọc được phần văn bản trang chủ, các khu vực còn lại là giả định cần kiểm chứng. |
-| 2 | Đề xuất bố cục, thành phần HTML, cách tổ chức CSS và cách hiển thị desktop/mobile cho thẻ sản phẩm hiển thị rõ giá gốc, giá giảm, tỷ lệ giảm, dành cho khách hàng Việt Nam. | Phương án khối giá hai tầng, cấu trúc `ul/li/article`, CSS chia 5 phần, bảng số cột theo màn hình, kèm một file HTML demo. |
-| 3 | Tạo trang HTML5/CSS3 hoàn chỉnh: có tiêu đề, khu vực sản phẩm, tối thiểu 4 sản phẩm (ảnh, tên, giá, nút mua), responsive, HTML rõ ràng, CSS tách file riêng. | Bộ `index.html`, `style.css` và 6 ảnh SVG (6 sản phẩm). |
-| 4 | Gửi ảnh chụp màn hình trang chạy trên Edge (không có định dạng, ảnh vỡ), yêu cầu sửa để HTML liên kết đúng với CSS. | AI giải thích thư mục của tôi chỉ có `index.html`, thiếu `style.css` và `images/`. AI nhúng ảnh vào HTML và đóng gói lại hai file. |
-| 5 | Yêu cầu viết `README.md` và `AI_USAGE_LOG.md`. | Hai file này (bản nháp để em chỉnh lại). |
+/* 6. HOVER & FOCUS (Buổi 2) – pseudo-class + transition */
+.product-card__btn,
+.product-card__fav { transition: background-color .2s ease, border-color .2s ease; }
+.product-card__btn:hover { background: var(--c-sale-dark); }
+.product-card__fav:hover { background: var(--c-sale-bg); border-color: var(--c-sale); }
+.site-nav a:hover { color: var(--c-ink); background: var(--c-line); }
+.product-card__link:hover { text-decoration: underline; }
 
-## 4. Cách em sử dụng kết quả của AI
+/* :focus-visible chỉ hiện khi điều hướng bằng bàn phím (Tab) */
+.product-card__btn:focus-visible,
+.product-card__fav:focus-visible,
+.site-nav a:focus-visible,
+.site-logo:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 3px; }
+/* Buổi 2 (sửa lỗi Bước 8): chỉ viền cả thẻ khi LIÊN KẾT tên sản phẩm được focus bằng bàn phím.
+   Trước đây dùng :focus-within nên khi Tab vào nút, thẻ và nút cùng hiện viền (2 viền chồng nhau). */
+.product-card:has(.product-card__link:focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
 
-- Bảng phân tích (prompt 1) dùng làm khung khảo sát. Tôi hiểu rằng các mục `[CKC]` phải tự kiểm chứng trên Tiki trước khi dùng làm kết luận.
-- Phương án (prompt 2) được chọn làm hướng thiết kế.
-- Mã (prompt 3, 4) được đặt vào thư mục `ecommerce-ui-improvement`, chạy thử trên Microsoft Edge và dùng làm sản phẩm nộp.
-- Em không coi nội dung AI viết là đúng tuyệt đối. Em đã chạy thử và phát hiện lỗi ở prompt 4.
-
-## 5. Phần em đã tự sửa
-
-Đã xác nhận được qua quá trình làm bài:
-- Đặt tên và tổ chức thư mục dự án `ecommerce-ui-improvement` trong `Documents`.
-- Chạy thử `index.html` trên Edge, phát hiện trang mất định dạng và ảnh vỡ, rồi báo lại để sửa.
-
-Em tự điền thêm:
-- **Nội dung, ảnh, chữ đã đổi:**
-  - **Đường dẫn CSS:** Sửa từ `href="style.css"` thành `href="css/style.css"` trong file `index.html`.
-  - **Đường dẫn ảnh:** Chuyển toàn bộ ảnh từ định dạng `.svg` sang định dạng `.jpg` thực tế (`images/tai-nghe.jpg`, `images/noi-chien.jpg`, `images/ao-thun.jpg`, `images/sua-rua-mat.jpg`).
-  - **Tên, giá, màu sắc:** Giữ nguyên theo mẫu, không thay đổi.
-
-- **Đoạn CSS/HTML đã thêm, bớt hoặc sửa:**
-  - **HTML:** Cập nhật thuộc tính `href` của thẻ `<link>` và thuộc tính `src` của 4 thẻ `<img>` hiển thị sản phẩm.
-  - **CSS:** Thêm `aspect-ratio: 1 / 1;` cho lớp `.product-card__media` để cố định khung ảnh vuông. Thêm `object-fit: cover;` và `object-position: center;` cho `.product-card__media img` trong file `css/style.css` để hình ảnh căn giữa, lấp đầy khung và xóa bỏ khoảng trắng thừa.
-
-- **Thiết bị hoặc trình duyệt đã kiểm thử:**
-  - Trình duyệt máy tính: Google Chrome / Microsoft Edge.
-  - Kiểm thử giao diện di động (Responsive): Sử dụng công cụ Chrome DevTools (phím `F12`).
-  - Thiết bị di động thực tế: Không có.
-
-## 6. Phần em tự giải thích được
-
-**Hãy đánh dấu `[x]` chỉ những mục bạn thực sự giải thích được khi giảng viên hỏi.** 
-
-- **Vì sao trang bị mất định dạng ban đầu:** `index.html` dùng `<link rel="stylesheet" href="style.css">`, đường dẫn tương đối nên `style.css` phải nằm cùng thư mục. Thiếu file thì trình duyệt không tìm thấy CSS.
-- **Vì sao dùng `<del>` cho giá gốc:** thẻ này có nghĩa "nội dung đã bị thay thế", và trình duyệt gạch ngang mặc định.
-- **Vì sao có `.sr-only`:** để người dùng trình đọc màn hình nghe được "Giá hiện tại", "Giá gốc", "Giảm", dù chữ này không hiện trên màn hình.
-- **CSS Grid đổi số cột thế nào:** `.product-grid` dùng `repeat(N, minmax(0, 1fr))`, và `@media (min-width: …)` tăng N từ 2 lên 3, 4, 5.
-- **Thế nào là mobile-first:** viết CSS cho điện thoại trước, sau đó dùng `min-width` để bổ sung cho màn hình lớn hơn.
-- **Vì sao dùng biến CSS `:root`:** đổi một giá trị (ví dụ `--c-sale`) là cập nhật toàn bộ trang.
-- **Vì sao ảnh được nhúng thẳng vào HTML:** để chỉ cần hai file `index.html` và `style.css` là chạy đủ, không phụ thuộc thư mục `images/`.
-
-## Cam kết
-
-Em đã đọc, chạy thử và hiểu các phần đã đánh dấu ở mục 6. Các phần AI hỗ trợ đã được ghi rõ trong nhật ký này. Phần phân tích Tiki ngoài trang chủ chưa được kiểm chứng và tôi không trình bày như sự thật đã xác minh.
-
----
-
-# Nhật ký sử dụng AI – Buổi 2 (HTML & CSS)
-
-- **Công cụ:** Claude (Anthropic).
-- **Ngày:** 03/11/2026
-
-## Prompt tiêu biểu (đủ 9 prompt trong đề, nội dung đầy đủ ở file Word báo cáo)
-
-| # | Mục đích | Kết quả AI | Phần tôi kiểm tra / điều chỉnh |
-|---|---|---|---|
-| 1 | Phân tích mã Buổi 1 | Liệt kê thành phần đã có, 5 vấn đề, thứ tự cải tiến | Tự mở trang ở 1366/768/390 px để xác nhận từng vấn đề trước khi sửa |
-| 2 | Kiểm tra HTML5 ngữ nghĩa | Đề xuất đổi menu sang `ul/li`, thêm nhóm nút | Giữ nguyên `header/main/section/article/footer` đã đúng, không thêm thẻ thừa |
-| 3 | CSS cơ bản + liên kết | Xác nhận `css/style.css`, dọn khối CSS bị lặp | Thử đổi đường dẫn sai để xem lỗi trong Network |
-| 4 | Selector và Box Model | Giải thích margin/padding/border/border-box | Đối chiếu số đo thật trên thẻ (card 285 px → nội dung 259 px) |
-| 5 | Flexbox | Header, menu, nhóm nút | Thử các giá trị `justify-content`, `align-items`, `gap` và chụp ảnh |
-| 6 | CSS Grid | Lưới 2/4 cột, `object-fit: cover` | Thử 2/3/4 cột và thử xóa `display: grid` |
-| 7 | Hover/focus | `transition`, `:hover`, `:focus-visible` | Duyệt bằng phím Tab, phát hiện 2 viền focus chồng nhau (xem prompt 8) |
-| 8 | Tìm lỗi | Nguyên nhân + cách sửa ít thay đổi nhất | Tự sửa 4 lỗi: viền focus kép, cột lưới, ảnh tai nghe, đuôi ảnh |
-| 9 | README | Cấu trúc README 7 mục | Điền chỗ trống link repository |
-
-## Phần tôi tự điều chỉnh sau khi AI đề xuất
-
-- Không dùng `:focus-within` cho viền cả thẻ (gây 2 viền khi focus nút) → dùng `:has(.product-card__link:focus-visible)`.
-- Bỏ mốc 3 cột và 5 cột vì danh sách chỉ có 4 sản phẩm.
-- Chuyển 4 ảnh về đúng định dạng JPEG, khung vuông 800×800.
+/* 7. RESPONSIVE (mobile-first) */
+/* Buổi 2 (sửa lỗi Bước 8): danh sách có 4 sản phẩm nên chỉ dùng 2 cột (điện thoại, máy tính bảng)
+   và 4 cột (màn hình rộng). Bỏ mốc 3 cột và 5 cột vì làm lệch hàng / thừa ô trống. */
+@media (min-width: 640px) {
+  :root { --gap: 12px; --pad: 12px; }
+}
+@media (min-width: 960px) {
+  .product-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .product-card__title { font-size: .9375rem; }
+  .price__now { font-size: 1.25rem; }
+}
+@media (hover: hover) {
+  .product-card { transition: box-shadow .15s; }
+  .product-card:hover { box-shadow: 0 4px 14px rgba(0, 0, 0, .12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-card, .product-card__btn, .product-card__fav, .site-nav a { transition: none; }
+}
