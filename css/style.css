@@ -92,12 +92,12 @@ img { display: block; max-width: 100%; height: auto; }
   background: #f8f9fa;
 }
 
-/* ĐÃ CẬP NHẬT: Dùng contain + padding để sản phẩm hiển thị đầy đủ 100% không bị cắt */
+/* CHỈNH LẠI THẨM MỸ CỦA ẢNH: TRÀN ĐỀU KHUNG VUÔNG, GIỮ ĐẦU NGƯỜI MẪU */
 .product-card__media img { 
   width: 100%; 
   height: 100%; 
-  object-fit: contain; 
-  padding: 8px;
+  object-fit: cover;                      /* Phủ kín tràn rộng khung vuông 100% */
+  object-position: top;                   /* Căn từ đỉnh ảnh xuống để giữ trọn đầu & mặt */
   display: block;
 }
 
