@@ -65,5 +65,5 @@ Dùng Claude (Anthropic) cho 9 prompt của đề; chi tiết trong `AI_USAGE_LO
 
 ## 8. Đường dẫn
 
-- Repository: [điền link GitHub của bạn]
-- Website triển khai (nếu có): [chưa triển khai]
+- Repository: https://github.com/thangpham2202/ecommerce-ui-improvement.git 
+- Website triển khai (nếu có): https://thangpham2202.github.io/ecommerce-ui-improvement/ 
