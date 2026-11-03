@@ -82,15 +82,27 @@ img { display: block; max-width: 100%; height: auto; }
   aspect-ratio: 1 / 1;
   min-height: 0;
   overflow: hidden;
-  background: #f8f9fa;
+  background: #ffffff;
 }
 
 .product-card__media img { 
   width: 100%; 
   height: 100%; 
-  object-fit: cover;
-  object-position: top;                   /* ĐÃ ĐỔI THÀNH TOP ĐỂ LẤY ĐẦU NGƯỜI MẪU */
   display: block;
+}
+
+/* 1. Tai nghe & Nồi chiên: Giữ trọn vẹn sản phẩm không bị cắt quai/góc */
+.product-card__media img[src*="tai-nghe"],
+.product-card__media img[src*="noi-chien"] {
+  object-fit: contain;
+  padding: 10px;
+}
+
+/* 2. Áo thun & Sữa rửa mặt: Tràn khung vuông, giữ trọn mặt người mẫu từ đỉnh đầu */
+.product-card__media img[src*="ao-thun"],
+.product-card__media img[src*="sua-rua-mat"] {
+  object-fit: cover;
+  object-position: top center;
 }
 
 .product-card__body {
