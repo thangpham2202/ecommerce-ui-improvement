@@ -91,14 +91,19 @@ img { display: block; max-width: 100%; height: auto; }
   display: block;
 }
 
-/* 1. Tai nghe & Nồi chiên: Giữ trọn vẹn sản phẩm không bị cắt quai/góc */
-.product-card__media img[src*="tai-nghe"],
+/* 1. Tai nghe: Dùng contain + padding để hiển thị trọn vẹn 100% quai đeo */
+.product-card__media img[src*="tai-nghe"] {
+  object-fit: contain;
+  padding: 14px;
+}
+
+/* 2. Nồi chiên: Dùng contain + padding vừa vặn */
 .product-card__media img[src*="noi-chien"] {
   object-fit: contain;
   padding: 10px;
 }
 
-/* 2. Áo thun & Sữa rửa mặt: Tràn khung vuông, giữ trọn mặt người mẫu từ đỉnh đầu */
+/* 3. Áo thun & Sữa rửa mặt: Dùng cover + căn đỉnh để vừa khít khung và thấy rõ mặt người mẫu */
 .product-card__media img[src*="ao-thun"],
 .product-card__media img[src*="sua-rua-mat"] {
   object-fit: cover;
