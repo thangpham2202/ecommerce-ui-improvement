@@ -53,7 +53,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* 4. HEADER / FOOTER – FLEXBOX */
 .site-header { background: var(--c-card); border-bottom: 1px solid var(--c-line); }
-.site-header .container {                  /* selector hậu duệ (descendant) */
+.site-header .container {                 /* selector hậu duệ (descendant) */
   display: flex;                          /* cha: logo + nav thành 1 hàng */
   align-items: center;                    /* căn giữa theo chiều dọc (trục phụ) */
   justify-content: space-between;         /* logo sát trái, menu sát phải (trục chính) */
@@ -83,24 +83,11 @@ img { display: block; max-width: 100%; height: auto; }
   border-radius: var(--r-card);           /* bo góc */
   overflow: hidden;
 }
-
-/* ĐÃ ĐỒNG NHẤT KHUNG ẢNH VUÔNG 1:1 GIỐNG VS CODE */
 .product-card__media {
-  width: 100%;                            /* Phủ kín chiều rộng khung chứa */
-  aspect-ratio: 1 / 1;                    /* Tỷ lệ khung vuông 1:1 */
-  min-height: 0;                          /* Ngăn Flexbox tự động nới rộng chiều cao theo ảnh gốc */
-  overflow: hidden;                       /* Cắt phần thừa bên ngoài khung vuông */
+  aspect-ratio: 1 / 1;                    /* khung ảnh vuông 1:1 */
   background: #f8f9fa;
 }
-
-.product-card__media img { 
-  width: 100%; 
-  height: 100%; 
-  object-fit: cover;                      /* Cắt tỉa ảnh ôm trọn khung vuông 1:1 không bị méo */
-  object-position: center; 
-  display: block;
-}
-
+.product-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .product-card__body {
   flex: 1; display: flex; flex-direction: column; gap: 6px;
   padding: var(--pad);                    /* padding: đệm giữa viền thẻ và nội dung */
@@ -157,9 +144,13 @@ img { display: block; max-width: 100%; height: auto; }
 .product-card__fav:focus-visible,
 .site-nav a:focus-visible,
 .site-logo:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 3px; }
+/* Buổi 2 (sửa lỗi Bước 8): chỉ viền cả thẻ khi LIÊN KẾT tên sản phẩm được focus bằng bàn phím.
+   Trước đây dùng :focus-within nên khi Tab vào nút, thẻ và nút cùng hiện viền (2 viền chồng nhau). */
 .product-card:has(.product-card__link:focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
 
 /* 7. RESPONSIVE (mobile-first) */
+/* Buổi 2 (sửa lỗi Bước 8): danh sách có 4 sản phẩm nên chỉ dùng 2 cột (điện thoại, máy tính bảng)
+   và 4 cột (màn hình rộng). Bỏ mốc 3 cột và 5 cột vì làm lệch hàng / thừa ô trống. */
 @media (min-width: 640px) {
   :root { --gap: 12px; --pad: 12px; }
 }
